@@ -21,7 +21,7 @@ const Sidebar = () => {
         <div className="h-screen flex  flex-col justify-between pb-10 pt-2">
           <div className="flex flex-col gap-10">
             <div className="flex items-center justify-between">
-            <Link to="/" className="flex font-bold text-xl items-center justify-center  cursor-pointer">
+            <Link  onClick={()=>{setPage("Dashboard")}} to="/" className="flex font-bold text-xl items-center justify-center  cursor-pointer">
               <img className="h-[50px]" src={Logo} alt="" />
               <p>TeachMateAI</p>
             </Link>
