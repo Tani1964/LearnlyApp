@@ -75,7 +75,7 @@ const Sidebar = () => {
             </a>
           </div>
         </div>
-        <div className="text-center  cursor-pointer">Theme</div>
+        <div className="text-center hidden  cursor-pointer">Theme</div>
       </div>
     </div>
   );
