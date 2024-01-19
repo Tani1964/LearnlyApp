@@ -1,21 +1,39 @@
 import ProfilePic from "../assets/profile.jpg";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { Badge, Tooltip } from "@mui/material";
+import { Link } from "react-router-dom";
+import Logo from "../assets/Logo.png";
+import MenuIcon from '@mui/icons-material/Menu';
+import { useContext } from "react";
+import { MenuContext } from "../context/MenuContext";
 
 const Navbar = () => {
+  const {menu,setMenu} = useContext(MenuContext)
+  
   return (
-    <div className="flex justify-between items-center h-[10vh] px-10 py-2 border-b-2 border-orange-200 border-l-white pr-4  ">
-      <div className="flex gap-4">
-        <div className="flex gap-3 justify-center items-center">
-          <p className="font-bold text-lg text-[#FB9D18]">Name:</p>
+    <div className="text-[15px] md:text-base flex justify-between items-center h-[10vh] py-2 border-b-2 border-orange-200 border-l-white px-4  ">
+      <div className="lg:hidden">
+
+      {menu? null :<MenuIcon onClick={()=>{setMenu(true)}} className="flex lg:hidden"/>}
+      </div>
+      <div className="flex gap-2 md:justify-between">
+        <Link
+          to="/"
+          className="flex font-bold text-xl items-center justify-center  cursor-pointer lg:hidden"
+        >
+          <img className="h-[50%]" src={Logo} alt="" />
+          <p className="hidden md:flex">TeachMateAI</p>
+        </Link>
+        <div className="flex gap-3 justify-center items-center lg:pr-8">
+          <p className="font-bold lg:text-lg text-[#FB9D18]  ">NAME:</p>
           <p>Ibiyemi Pedro</p>
         </div>
         <div className="flex gap-3 justify-center items-center">
-          <p className="font-bold text-lg text-[#FB9D18]">Staff-Id:</p>
-          <p>000001</p>
+          <p className="font-bold lg:text-lg text-[#FB9D18]">STAFF ID:</p>
+          <p>0001</p>
         </div>
       </div>
-      <div className="h-12 flex items-center gap-6 cursor-pointer">
+      <div className="h-12 flex items-center gap-4 lg:gap-6 cursor-pointer">
         <Tooltip title="You have 4 new notifications">
           <Badge className="animate-pulse" badgeContent={4} color="secondary">
             <NotificationsIcon />

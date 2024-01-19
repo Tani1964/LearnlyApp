@@ -8,18 +8,25 @@ import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import { Badge, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useContext } from "react";
+import { MenuContext } from "../context/MenuContext";
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 const Sidebar = () => {
+  const {menu,setMenu} = useContext(MenuContext)
   const [page, setPage] = useState("Dashboard")
   return (
-      <div className="w-2/4 hidden lg:flex lg:flex-col lg:w-1/4 pr-4 px-4 ">
+      <div className={menu? "w-2/4 lg:flex lg:flex-col lg:w-1/4 pr-4 px-4 " :"w-2/4 hidden lg:flex lg:flex-col lg:w-1/4 pr-4 px-4 "}>
         {/* open */}
-        <div className="h-screen flex  flex-col justify-between pb-10">
+        <div className="h-screen flex  flex-col justify-between pb-10 pt-2">
           <div className="flex flex-col gap-10">
+            <div className="flex items-center justify-between">
             <Link to="/" className="flex font-bold text-xl items-center justify-center  cursor-pointer">
-              <img className="h-[50%]" src={Logo} alt="" />
+              <img className="h-[50px]" src={Logo} alt="" />
               <p>TeachMateAI</p>
             </Link>
+            <div onClick={()=>{setMenu(false)}} className="flex lg:hidden"><CloseRoundedIcon/></div>
+            </div>
             <div className="text-[#FB9D18]">
               <div className="flex flex-col">
                   <Link onClick={()=>{setPage("Dashboard")}} to="/" className={page == "Dashboard"? "bg-gradient-to-r from-primary text-white transition-color  duration-300 cursor-pointer p-2 rounded-r-full flex gap-4":"pl-5 hover:bg-gradient-to-r hover:from-primary hover:text-white p-2 rounded-r-full flex gap-4 transition hover:transition-color duration-150 ease-in-out hover:duration-300 cursor-pointer"}>
