@@ -23,7 +23,7 @@ const Sidebar = () => {
             <div className="flex items-center justify-between">
             <Link  onClick={()=>{setPage("Dashboard")}} to="/" className="flex font-bold text-xl items-center justify-center  cursor-pointer">
               <img className="h-[50px]" src={Logo} alt="" />
-              <p>TeachMateAI</p>
+              <p className="text-sm lg:text-base">TeachMateAI</p>
             </Link>
             <div onClick={()=>{setMenu(false)}} className="flex lg:hidden"><CloseRoundedIcon/></div>
             </div>

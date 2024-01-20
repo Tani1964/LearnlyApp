@@ -11,7 +11,7 @@ import Settings from "./pages/Settings";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="flex h-screen font-customFont">
+      <div className="flex h-screen font-customFont overflow-x-hidden">
         <Sidebar />
         <div className="w-full">
           <Navbar />
